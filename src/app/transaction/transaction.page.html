@@ -6,4 +6,55 @@
 
 <ion-content>
 
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label>
+        Transaccion
+      </ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label position="fixed">Monto</ion-label>
+      <ion-input placeholder="00"></ion-input>
+      <ion-label position="fixed">.</ion-label>
+      <ion-input placeholder="00"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Beneficiario</ion-label>
+      <ion-input placeholder="Nombre..."></ion-input>
+      <ion-input placeholder="Cedula..."></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="fixed">Cuenta</ion-label>
+
+      <ion-item>
+        <ion-label>Nombre del Banco</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option value="genesis"><B>BANCO 1</B></ion-select-option>
+          <ion-select-option value="saturn">BANCO 2</ion-select-option>
+          <ion-select-option value="snes">BANCO 3</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-select interface="popover">
+          <ion-select-option value="nes">Cuenta de ahorros</ion-select-option>
+          <ion-select-option value="n64">Cuenta corriente</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-input placeholder="Numero de Cuenta..."></ion-input>
+    </ion-item>
+
+
+    <section>
+      <ion-button expand="block">Realizar Transaccion</ion-button>
+    </section>
+    
+  </ion-list>
+
+ 
+
 </ion-content>
