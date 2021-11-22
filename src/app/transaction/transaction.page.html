@@ -48,11 +48,18 @@
       <ion-input placeholder="Numero de Cuenta..."></ion-input>
     </ion-item>
 
+    <div *ngFor="let item of bankInfo">
+      <ion-item>
+        <ion-label class="ion-text-wrap">
+          <ion-text color="primary"><h2>{{item.nombre}}</h2></ion-text>            
+        </ion-label>
+      </ion-item>
+    </div>
 
     <section>
-      <ion-button expand="block">Realizar Transaccion</ion-button>
+      <ion-button (click)='getBankInformation()' expand="block">Realizar Transaccion</ion-button>
     </section>
-    
+
   </ion-list>
 
  
