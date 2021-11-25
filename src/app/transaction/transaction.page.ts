@@ -16,8 +16,8 @@ export class TransactionPage implements OnInit {
   private response: any
   
   cedula: string
-  cuenta1: string
-  cuenta2: string
+  cuentaCl: string
+  cuenta: string
   monto: string
 
   constructor(private esbService : ESBserviceService) { 
@@ -38,13 +38,15 @@ export class TransactionPage implements OnInit {
   async makeTransaction() {
     this.aux.id = this.bank
     this.aux.cedula = this.cedula
-    this.aux.cuenta = this.cuenta2
+    this.aux.cuentaCl = this.cuentaCl
+    this.aux.cuenta = this.cuenta
     this.aux.monto = Number(this.monto)
 
-    if(this.cedula && this.cuenta2 && this.cuenta1 && this.monto && this.bank){
+    if(this.cedula && this.cuenta && this.cuentaCl && this.monto && this.bank){
       console.log("YES IT IS!")
       console.log("BANK>> "+this.bank+" CEDULA>> "+this.cedula)
-      console.log(this.esbService.startTransaction(this.aux).subscribe(async (items) => {
+      
+      this.esbService.startTransaction(this.aux).subscribe(async (items) => {
         
         this.response = items
         console.log( this.response );
@@ -63,14 +65,21 @@ export class TransactionPage implements OnInit {
             message: 'Un error ocurrio y no se pudo realizar la transacción',
             buttons: ['OK']
           });
-          await alert.present();
   
+          await alert.present();
         } 
 
-      }))
+      })
 
     } else {
-      console.log("NO IT ISN'T!")
+      console.log("INGRESE LOS CAMPOS")
+      const alert = await alertController.create({
+        header: 'Transacción fallida',
+        message: 'Ingrese todos los campos obligatorios',
+        buttons: ['OK']
+      });
+
+      await alert.present();
     }
 
     
