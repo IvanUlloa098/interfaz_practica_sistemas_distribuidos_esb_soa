@@ -1,4 +1,6 @@
 export class RequestESB {
     id:number
-    nombre:string
+    cedula:string
+    cuenta:string
+    monto: number
   }

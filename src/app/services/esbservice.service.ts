@@ -13,7 +13,7 @@ export class ESBserviceService {
 
   startTransaction(params: RequestESB):Observable<any[]>  {
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };  
-    const body = {'id': params.id, 'nombre': params.nombre}
+    const body = {'id': params.id, 'cedula': params.cedula, 'cuenta': params.cuenta, 'monto': params.monto}
     console.log(body)
 
     return this.http.post<any>(environment.WS_PATH, body, config)
